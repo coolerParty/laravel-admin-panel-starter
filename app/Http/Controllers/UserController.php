@@ -40,7 +40,6 @@ class UserController extends Controller
             'password' => ['required', 'min:8', 'string', new Password, 'confirmed'],
             'email'    => ['required', 'email', 'unique:users'],
             'name'     => ['required', 'min:3'],
-            'image'    => ['nullable','image','max:2048'],
             'role'     => ['required'],
         ]);
 
@@ -56,7 +55,6 @@ class UserController extends Controller
             'password' => Hash::make($request->input('password')),
             'email'    => $request->input('email'),
             'name'     => $request->input('name'),
-            'profile_photo_path' => $request->input('image'),
         ]);
 
         foreach ($request->role as $p) {

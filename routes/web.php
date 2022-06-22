@@ -34,8 +34,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified', 
     Route::resource('permissions', PermissionController::class);
     Route::resource('roles', RoleController::class);
     // Route::resource('users', UserController::class);
-    Route::get('/user/profile', UserComponent::class)->name('users.index');
-    Route::get('/user/profile/create', UserAddComponent::class)->name('users.create');
-    Route::get('/user/profile/{user_id}/edit', UserEditComponent::class)->name('users.edit');
+    Route::get('/users', UserComponent::class)->name('users.index');
+    Route::get('/users/create', UserAddComponent::class)->name('users.create');
+    Route::get('/users/{user_id}/edit', UserEditComponent::class)->name('users.edit');
 
 });
