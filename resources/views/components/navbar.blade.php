@@ -211,7 +211,7 @@
                             <a href="{{ route('profile') }}" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Profile</a>
                         </li>
                         <li>
-                            <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Change Password</a>
+                            <a href="{{ route('password') }}" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Change Password</a>
                         </li>
                     </ul>
                     <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">

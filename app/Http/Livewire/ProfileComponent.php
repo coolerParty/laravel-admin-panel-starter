@@ -22,12 +22,11 @@ class ProfileComponent extends Component
     public function mount()
     {
 
-        $user = User::select('id','name','email','profile_photo_path')->where('id', Auth::user()->id)->first();
+        $user = User::select('id', 'name', 'email', 'profile_photo_path')->where('id', Auth::user()->id)->first();
         $this->user_id = $user->id;
         $this->name    = $user->name;
         $this->email   = $user->email;
         $this->image   = $user->profile_photo_path;
-
     }
 
     public function updated($fields)
@@ -37,7 +36,7 @@ class ProfileComponent extends Component
             'name'      => ['required', 'min:3'],
         ]);
 
-        if($this->newImage){
+        if ($this->newImage) {
             $this->validateOnly($fields, [
                 'newImage' => ['nullable', 'image', 'max:2048'],
             ]);
@@ -46,13 +45,15 @@ class ProfileComponent extends Component
 
     public function update()
     {
+        $this->confirmation();
+
         $this->validate([
             'email'     => ['required', 'email', Rule::unique('users')->ignore(Auth::user()->id)],
             'name'      => ['required', 'min:3'],
         ]);
 
-        if($this->newImage){
-            $this->validate( [
+        if ($this->newImage) {
+            $this->validate([
                 'newImage' => ['nullable', 'image', 'max:2048'],
             ]);
         }
@@ -61,11 +62,10 @@ class ProfileComponent extends Component
         $user->name  = $this->name;
         $user->email = $this->email;
 
-        if($this->newImage){
-            if($this->image)
-            {
-                unlink('storage/assets/profile/medium'.'/'.$user->profile_photo_path); // Deleting Image
-                unlink('storage/assets/profile/small'.'/'.$user->profile_photo_path); // Deleting Image
+        if ($this->newImage) {
+            if ($this->image) {
+                unlink('storage/assets/profile/medium' . '/' . $user->profile_photo_path); // Deleting Image
+                unlink('storage/assets/profile/small' . '/' . $user->profile_photo_path); // Deleting Image
             }
             $imagename = Carbon::now()->timestamp . '.' . $this->newImage->extension();
 
@@ -81,7 +81,7 @@ class ProfileComponent extends Component
         }
 
         $user->save();
-        return redirect()->route('profile')->with('message','Profile has been updated successfully!');
+        return redirect()->route('profile')->with('message', 'Profile has been updated successfully!');
     }
 
     public function removeImage()
@@ -89,8 +89,17 @@ class ProfileComponent extends Component
         $this->newImage = null;
     }
 
+    public function confirmation()
+    {
+        if (!Auth::check()) {
+            Abort(403);
+        }
+    }
+
     public function render()
     {
+        $this->confirmation();
+
         return view('livewire.profile-component')->layout('layouts.base');
     }
 }
