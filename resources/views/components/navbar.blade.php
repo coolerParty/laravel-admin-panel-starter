@@ -189,12 +189,12 @@
             <div class="relative" x-data="{ isOpen: false }">
                 <button @click="isOpen = !isOpen" class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
                     @if(auth()->user()->profile_photo_path)
-                    <img class="object-cover w-8 h-8 rounded-full" src="{{ asset('storage/assets/profile/small') }}/{{ auth()->user()->profile_photo_path }}"
-                        alt="Ahmed Kamel" />
+                        <img class="object-cover w-8 h-8 rounded-full" src="{{ asset('storage/assets/profile/small') }}/{{ auth()->user()->profile_photo_path }}"
+                        alt="" />
                     @else
-                    <img class="object-cover w-8 h-8 rounded-full"
-                        src="https://avatars0.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
-                        alt="Ahmed Kamel" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                        </svg>
                     @endif
                 </button>
                 <!-- green dot -->
@@ -208,10 +208,10 @@
                     </div>
                     <ul class="flex flex-col p-2 my-2 space-y-1">
                         <li>
-                            <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Link</a>
+                            <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Profile</a>
                         </li>
                         <li>
-                            <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Another Link</a>
+                            <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Change Password</a>
                         </li>
                     </ul>
                     <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">

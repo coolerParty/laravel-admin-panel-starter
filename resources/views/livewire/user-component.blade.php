@@ -28,6 +28,10 @@
                             <tr>
                                 <th scope="col"
                                     class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    Image
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                     Title
                                 </th>
                                 <th scope="col"
@@ -131,6 +135,15 @@
                         <tbody class="bg-white divide-y divide-gray-200">
                             @forelse($users as $user)
                             <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    @if($user->profile_photo_path)
+                                    <img class="object-cover w-8 h-8 rounded-full" src="{{ asset('storage/assets/profile/small') }}/{{ $user->profile_photo_path }}" />
+                                    @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                    </svg>
+                                    @endif
+                                </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm font-medium text-gray-900">{{ $user->name }}</div>
                                 </td>
