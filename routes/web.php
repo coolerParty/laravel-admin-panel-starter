@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
+use App\Http\Livewire\ProfileComponent;
 use App\Http\Livewire\UserAddComponent;
 use App\Http\Livewire\UserComponent;
 use App\Http\Livewire\UserEditComponent;
@@ -34,8 +35,12 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified', 
     Route::resource('permissions', PermissionController::class);
     Route::resource('roles', RoleController::class);
     // Route::resource('users', UserController::class);
+
     Route::get('/users', UserComponent::class)->name('users.index');
     Route::get('/users/create', UserAddComponent::class)->name('users.create');
     Route::get('/users/{user_id}/edit', UserEditComponent::class)->name('users.edit');
+
+    Route::get('/profile', ProfileComponent::class)->name('profile');
+
 
 });

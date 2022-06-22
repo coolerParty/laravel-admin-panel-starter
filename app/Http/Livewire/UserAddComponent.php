@@ -64,7 +64,7 @@ class UserAddComponent extends Component
             $originalPath   = storage_path() . '/app/public/assets/profile/medium/';
             $thumbnailPath   = storage_path() . '/app/public/assets/profile/small/';
             $thumbnailImage = Image::make($this->image);
-            $thumbnailImage->fit(460, 460);
+            $thumbnailImage->fit(500, 500);
             $thumbnailImage->save($originalPath . $imagename);
             $thumbnailImage->fit(100, 100);
             $thumbnailImage->save($thumbnailPath . $imagename);
@@ -84,6 +84,11 @@ class UserAddComponent extends Component
         if (!auth()->user()->can('user-create')) {
             abort(404);
         }
+    }
+
+    public function removeImage()
+    {
+        $this->image = null;
     }
 
     public function render()

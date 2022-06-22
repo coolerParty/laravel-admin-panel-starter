@@ -14,6 +14,11 @@ class UserComponent extends Component
             abort(404);
         }
         $user = User::find($user_id);
+        if($user->profile_photo_path)
+            {
+                unlink('storage/assets/profile/medium'.'/'.$user->profile_photo_path); // Deleting Image
+                unlink('storage/assets/profile/small'.'/'.$user->profile_photo_path); // Deleting Image
+            }
         $user->delete();
 
         return redirect()->route('users.index')
