@@ -49,16 +49,7 @@
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
 
-            <input type="text" placeholder="Search" class="
-              px-4
-              py-3
-              rounded-md
-              hover:bg-gray-100
-              lg:max-w-sm
-              md:py-2 md:flex-1
-              focus:outline-none
-              md:focus:bg-gray-100 md:focus:shadow md:focus:border
-            " />
+            <input type="text" placeholder="Search" class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border" />
         </div>
 
         <!-- Navbar right -->
@@ -88,19 +79,7 @@
                         </svg>
                     </button>
 
-                    <div @click.away="isOpen = false" x-show.transition.opacity="isOpen" class="
-                  absolute
-                  z-50
-                  w-48
-                  max-w-md
-                  mt-3
-                  transform
-                  bg-white
-                  rounded-md
-                  shadow-lg
-                  -translate-x-3/4
-                  min-w-max
-                ">
+                    <div @click.away="isOpen = false" x-show.transition.opacity="isOpen" class="absolute z-50 w-48 max-w-md mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max">
                         <div class="p-4 font-medium border-b">
                             <span class="text-gray-800">Notification</span>
                         </div>
@@ -130,19 +109,7 @@
                         </svg>
                     </button>
 
-                    <div @click.away="isOpen = false" x-show.transition.opacity="isOpen" class="
-                  absolute
-                  z-50
-                  w-48
-                  max-w-md
-                  mt-3
-                  transform
-                  bg-white
-                  rounded-md
-                  shadow-lg
-                  -translate-x-3/4
-                  min-w-max
-                ">
+                    <div @click.away="isOpen = false" x-show.transition.opacity="isOpen" class="absolute z-50 w-48 max-w-md mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max">
                         <div class="p-4 text-lg font-medium border-b">Web apps & services</div>
                         <ul class="flex flex-col p-2 my-3 space-y-3">
                             <li>
@@ -198,19 +165,7 @@
                         </svg>
                     </button>
 
-                    <div @click.away="isOpen = false" x-show.transition.opacity="isOpen" class="
-                  absolute
-                  z-50
-                  w-48
-                  max-w-md
-                  mt-3
-                  transform
-                  bg-white
-                  rounded-md
-                  shadow-lg
-                  -translate-x-3/4
-                  min-w-max
-                ">
+                    <div @click.away="isOpen = false" x-show.transition.opacity="isOpen" class="absolute z-50 w-48 max-w-md mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max">
                         <div class="p-4 font-medium border-b">
                             <span class="text-gray-800">Options</span>
                         </div>
@@ -234,7 +189,7 @@
             <div class="relative" x-data="{ isOpen: false }">
                 <button @click="isOpen = !isOpen" class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
                     @if(auth()->user()->profile_photo_path)
-                    <img class="object-cover w-8 h-8 rounded-full" src="{{ auth()->user()->profile_photo_path }}"
+                    <img class="object-cover w-8 h-8 rounded-full" src="{{ asset('storage/assets/profile/small') }}/{{ auth()->user()->profile_photo_path }}"
                         alt="Ahmed Kamel" />
                     @else
                     <img class="object-cover w-8 h-8 rounded-full"
@@ -246,19 +201,7 @@
                 <div class="absolute right-0 p-1 bg-green-400 rounded-full bottom-3 animate-ping"></div>
                 <div class="absolute right-0 p-1 bg-green-400 border border-white rounded-full bottom-3"></div>
 
-                <div @click.away="isOpen = false" x-show.transition.opacity="isOpen" class="
-                absolute
-                z-50
-                w-48
-                max-w-md
-                mt-3
-                transform
-                bg-white
-                rounded-md
-                shadow-lg
-                -translate-x-3/4
-                min-w-max
-              ">
+                <div @click.away="isOpen = false" x-show.transition.opacity="isOpen" class="absolute z-50 w-48 max-w-md mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max">
                     <div class="flex flex-col p-4 space-y-1 font-medium border-b">
                         <span class="text-gray-800">{{ auth()->user()->name }}</span>
                         <span class="text-sm text-gray-400">{{ auth()->user()->email }}</span>

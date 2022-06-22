@@ -11,7 +11,7 @@
     space-y-4
     border-b
     lg:items-center lg:space-y-0 lg:flex-row
-    mb-4
+    mb-2
     ">
     <h1 class="text-2xl font-semibold whitespace-nowrap">Users Create</h1>
     <a href="{{ route('users.index') }}" class="
@@ -36,7 +36,7 @@
         <span>Back</span>
     </a>
 </div>
-
+<div class="max-h-screen max-w-full md:bg-gray-300 md:p-4">
 
 <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
     <x-jet-validation-errors class="mb-4" />
@@ -81,6 +81,15 @@
         </div>
 
         <div class="mt-4">
+            <div>
+                <label class="text-gray-700 dark:text-gray-200" for="image">Image</label>
+                <input id="image" type="file" name="image" required autofocus
+                    autocomplete="image"
+                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+            </div>
+        </div>
+
+        <div class="mt-4">
             <div class="py-4"><strong>Roles:</strong></div>
                 @foreach($roles as $value)
                     <div class="m-1 p-2 border shadow-sm w-full"><label>
@@ -98,5 +107,6 @@
         </div>
     </form>
 </section>
+</div>
 
 @endsection
