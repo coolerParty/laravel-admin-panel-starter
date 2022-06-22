@@ -10,7 +10,7 @@ class UserComponent extends Component
 
     public function destroy($user_id)
     {
-        if (!auth()->user()->can('user-delete', 'admin-access')) {
+        if (!auth()->user()->can('user-delete')) {
             abort(404);
         }
         $user = User::find($user_id);

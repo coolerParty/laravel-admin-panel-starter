@@ -41,9 +41,7 @@ class UserEditComponent extends Component
 
     public function updateUserRole()
     {
-        if (!auth()->user()->can('role-edit', 'admin-access')) {
-            abort(404);
-        }
+        $this->confirmation();
 
         $this->validate([
             'userRoles' => ['required'],
@@ -66,8 +64,17 @@ class UserEditComponent extends Component
             ->with('update-success', 'User "' . $user->name . '" updated successfully.');
     }
 
+    public function confirmation()
+    {
+        if (!auth()->user()->can('user-edit')) {
+            abort(404);
+        }
+    }
+
     public function render()
     {
+        $this->confirmation();
+
         if (auth()->user()->can('super-admin')) {
             $roles = Role::get();
         } else {

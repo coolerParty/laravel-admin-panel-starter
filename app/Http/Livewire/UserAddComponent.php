@@ -81,7 +81,7 @@ class UserAddComponent extends Component
 
     public function confirmation()
     {
-        if (!auth()->user()->can('user-create', 'admin-access')) {
+        if (!auth()->user()->can('user-create')) {
             abort(404);
         }
     }
@@ -93,7 +93,7 @@ class UserAddComponent extends Component
         if (auth()->user()->can('Super Admin')) {
             $roles = Role::get();
         } else {
-            $roles = Role::whereNotIn('name', ['Super Admin'])->get();
+            $roles = Role::whereNotIn('name', ['super-admin'])->get();
         }
 
         return view('livewire.user-add-component', ['roles' => $roles])->layout('layouts.base');
