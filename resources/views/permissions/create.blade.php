@@ -5,7 +5,7 @@
 <!-- Main content header -->
 <div
     class="flex flex-col items-start justify-between pb-6 mb-4 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row">
-    <h1 class="text-2xl font-semibold whitespace-nowrap">Permission Create</h1>
+    <h1 class="text-lg font-semibold whitespace-nowrap">Permission <span class="text-base text-gray-400">/</span> <span class="text-2xl">Create</span></h1>
     <a href="{{ route('permissions.index') }}"
         class="inline-flex items-center justify-center px-4 py-1 space-x-1 bg-gray-200 rounded-md shadow hover:bg-opacity-20">
         <span>
